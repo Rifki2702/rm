@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/klinikha/public_html/
+    - rsync -av --exclude='.git' --exclude='node_modules' --exclude='storage/logs' ./ $DEPLOYPATH
+    - cd $DEPLOYPATH
+    - composer install --no-dev --optimize-autoloader # Jika Laravel
+    - php artisan migrate --force # Jika Laravel pakai database
+    - npm install && npm run build # Jika pakai frontend build process
+    - php artisan config:cache
+    - php artisan route:cache
+    - php artisan view:cache
+    - systemctl restart apache2 # Restart server jika perlu
