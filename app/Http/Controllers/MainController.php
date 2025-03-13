@@ -2,25 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\GigiUmumChart;
+use App\Charts\KunjunganChart;
 use Illuminate\Http\Request;
 use App\Models\Pasien;
 use App\Models\Kunjungan;
 use App\Models\PenjualanDetail;
 use App\Models\Penjualan;
-use App\Models\Dokter;
-use App\Models\KunjunganPoliUmum;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class MainController extends Controller
 {
-    public function index()
+    public function index(KunjunganChart $kunjunganChart, GigiUmumChart $gigiUmumChart)
     {
+        // Data statistik
         $jumlahPasien = Pasien::count();
         $jumlahKunjungan = Kunjungan::count();
         $jumlahPendapatan = PenjualanDetail::sum('total_harga');
         $jumlahPenjualan = Penjualan::count();
-        $penjualan = Penjualan::all(); // Undefined variable $penjualan
+        $penjualan = Penjualan::all();
 
-        return view('dashboard', compact('jumlahPasien', 'jumlahKunjungan', 'jumlahPendapatan', 'jumlahPenjualan', 'penjualan'));
+        // Kirim semua variabel ke view
+        return view('dashboard', [
+            'jumlahPasien' => $jumlahPasien,
+            'jumlahKunjungan' => $jumlahKunjungan,
+            'jumlahPendapatan' => $jumlahPendapatan,
+            'jumlahPenjualan' => $jumlahPenjualan,
+            'penjualan' => $penjualan,
+            'chart' => $kunjunganChart->build(),
+            'gigiUmumChart' => $gigiUmumChart->build()
+        ]);
     }
 
     public function dataPasien()
@@ -87,35 +98,5 @@ class MainController extends Controller
         $pasien = $query->get();
 
         return view('pasien.data', compact('pasien'));
-    }
-
-    public function showKunjunganForm($pasien_id)
-    {
-        $dokters = Dokter::all(); // Asumsi Anda memiliki model Dokter
-        return view('pasien.kunjungan-poli-umum', compact('pasien_id', 'dokters'));
-    }
-
-    public function storeKunjungan(Request $request)
-    {
-        $request->validate([
-            'pasien_id' => 'required|exists:pasien,id',
-            'tanggal_kunjungan' => 'required|date',
-            'jenis_pasien' => 'required|in:Baru,Lama',
-            'diagnosis' => 'required|string',
-            'pembiayaan' => 'required|in:BPJS,Umum',
-            'dokter_id' => 'required|exists:dokter,id',
-        ]);
-
-        // Simpan data kunjungan
-        KunjunganPoliUmum::create([
-            'pasien_id' => $request->pasien_id,
-            'tanggal_kunjungan' => $request->tanggal_kunjungan,
-            'jenis_pasien' => $request->jenis_pasien,
-            'diagnosis' => $request->diagnosis,
-            'pembiayaan' => $request->pembiayaan,
-            'dokter_id' => $request->dokter_id,
-        ]);
-
-        return redirect()->route('pasien')->with('success', 'Kunjungan poli umum berhasil disimpan!');
     }
 }

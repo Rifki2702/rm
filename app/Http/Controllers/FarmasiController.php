@@ -415,9 +415,4 @@ class FarmasiController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat mencetak kwitansi.');
         }
     }
-
-    public function laporanFarmasi()
-    {
-        return view('farmasi.laporan');
-    }
 }

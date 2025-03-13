@@ -22,4 +22,14 @@ class Pasien extends Model
     {
         return $this->hasMany(KunjunganPoliUmum::class, 'pasien_id');
     }
+
+    public function kunjunganPoliGigi()
+    {
+        return $this->hasMany(KunjunganPoliGigi::class, 'pasien_id');
+    }
+
+    public function kunjunganRawatInap()
+    {
+        return $this->hasMany(KunjunganRawatInap::class, 'pasien_id');
+    }
 }

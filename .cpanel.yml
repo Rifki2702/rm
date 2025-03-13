@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/klinikha/public_html/
+    - export DEPLOYPATH=/home/klinikha/
     - rsync -av --exclude='.git' --exclude='node_modules' --exclude='storage/logs' ./ $DEPLOYPATH
     - cd $DEPLOYPATH
     - composer install --no-dev --optimize-autoloader # Jika Laravel

@@ -1,7 +1,10 @@
 <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     WebFont.load({
-        google: { families: ["Public Sans:300,400,500,600,700"] },
+        google: {
+            families: ["Public Sans:300,400,500,600,700"]
+        },
         custom: {
             families: [
                 "Font Awesome 5 Solid",
@@ -11,7 +14,7 @@
             ],
             urls: ["assets/css/fonts.min.css"],
         },
-        active: function () {
+        active: function() {
             sessionStorage.fonts = true;
         },
     });

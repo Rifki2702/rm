@@ -76,13 +76,6 @@
                   <p>Penjualan Obat</p>
                 </a>
               </li>
-              <li class="nav-item {{ request()->is('laporan-farmasi') ? 'active' : '' }}">
-                <a href="{{ route('laporan-farmasi') }}">
-                  <i class="fas fa-file-alt"></i>
-                  <p>Laporan Farmasi</p>
-                </a>
-              </li>
-
               <li class="nav-section">
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
@@ -126,6 +119,33 @@
                   <i class="fas fa-tooth"></i>
                   <p>Poli Gigi</p>
                 </a>
+              </li>
+              <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                <h4 class="text-section">Laporan</h4>
+              </li>
+              <li class="nav-item {{ request()->is('laporan-farmasi') || request()->is('laporan-kunjungan') ? 'active' : '' }}">
+                <a href="#submenu-laporan" data-bs-toggle="collapse" class="{{ request()->is('laporan-farmasi') || request()->is('laporan-kunjungan') ? 'active' : '' }}">
+                  <i class="fas fa-file-alt"></i>
+                  <p>Laporan</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse {{ request()->is('laporan-farmasi') || request()->is('laporan-kunjungan') ? 'show' : '' }}" id="submenu-laporan">
+                  <ul class="nav nav-collapse">
+                    <li class="{{ request()->is('laporan-farmasi') ? 'active' : '' }}">
+                      <a href="{{ route('laporan.farmasi') }}">
+                        <span class="sub-item">Laporan Farmasi</span>
+                      </a>
+                    </li>
+                    <li class="{{ request()->is('laporan-kunjungan') ? 'active' : '' }}">
+                      <a href="{{ route('laporan.kunjungan') }}">
+                        <span class="sub-item">Laporan Kunjungan</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>

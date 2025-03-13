@@ -12,11 +12,22 @@ class Dokter extends Model
     protected $table = 'dokter';
 
     protected $fillable = [
-        'nama', 'poli',
+        'nama',
+        'poli',
     ];
 
     public function kunjunganPoliUmum()
     {
         return $this->hasMany(KunjunganPoliUmum::class, 'dokter_id');
+    }
+
+    public function kunjunganPoliGigi()
+    {
+        return $this->hasMany(KunjunganPoliGigi::class, 'dokter_id');
+    }
+
+    public function kunjunganRawatInap()
+    {
+        return $this->belongsToMany(KunjunganRawatInap::class, 'dokter_kunjungan_rawat_inap', 'dokter_id', 'kunjungan_rawat_inap_id');
     }
 }

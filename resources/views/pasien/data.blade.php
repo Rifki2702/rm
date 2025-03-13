@@ -120,7 +120,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="p-2">
-                                                    <button class="btn btn-success" style="background-color: #28a745;" onclick="">
+                                                    <button class="btn btn-success" style="background-color: #28a745;" onclick="redirectToKunjunganGigiForm()">
                                                         <i class="fa fa-tooth"></i> Poli Gigi
                                                     </button>
                                                 </div>
@@ -130,7 +130,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="p-2">
-                                                    <button class="btn btn-danger" style="background-color: #dc3545;" onclick="">
+                                                    <button class="btn btn-danger" style="background-color: #dc3545;" onclick="redirectToKunjunganInapForm()">
                                                         <i class="fa fa-hospital"></i> Rawat Inap
                                                     </button>
                                                 </div>
@@ -323,6 +323,22 @@
         function redirectToKunjunganForm() {
             if (selectedPasienId) {
                 window.location.href = `/kunjungan/poli-umum/${selectedPasienId}`;
+            } else {
+                alert('Please select a patient first.');
+            }
+        }
+
+        function redirectToKunjunganGigiForm() {
+            if (selectedPasienId) {
+                window.location.href = `/kunjungan/poli-gigi/${selectedPasienId}`;
+            } else {
+                alert('Please select a patient first.');
+            }
+        }
+
+        function redirectToKunjunganInapForm() {
+            if (selectedPasienId) {
+                window.location.href = `/kunjungan/rawat-inap/${selectedPasienId}`;
             } else {
                 alert('Please select a patient first.');
             }

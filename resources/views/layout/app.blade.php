@@ -34,6 +34,8 @@
     });
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <!-- CSS Files -->
   <link rel="stylesheet" href="{{ asset('template/assets/css/bootstrap.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('template/assets/css/plugins.min.css') }}" />

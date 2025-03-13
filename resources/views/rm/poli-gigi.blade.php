@@ -1,316 +1,68 @@
 @extends('layout.app')
 
 @section('content')
-<div class="page-inner">
-  <div
-    class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-    <div>
-      <h3 class="fw-bold mb-3">Dashboard</h3>
-      <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6 col-md-3">
-      <div class="card card-stats card-round">
-        <div class="card-body">
-          <div class="row align-items-center">
-            <div class="col-icon">
-              <div
-                class="icon-big text-center icon-primary bubble-shadow-small">
-                <i class="fas fa-users"></i>
-              </div>
-            </div>
-            <div class="col col-stats ms-3 ms-sm-0">
-              <div class="numbers">
-                <p class="card-category">Visitors</p>
-                <h4 class="card-title">1,294</h4>
-              </div>
+<div class="container">
+  <div class="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="d-flex align-items-center">
+              <h4 class="card-title">Data Pasien Poli Gigi</h4>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <div class="card card-stats card-round">
-        <div class="card-body">
-          <div class="row align-items-center">
-            <div class="col-icon">
-              <div
-                class="icon-big text-center icon-info bubble-shadow-small">
-                <i class="fas fa-user-check"></i>
-              </div>
-            </div>
-            <div class="col col-stats ms-3 ms-sm-0">
-              <div class="numbers">
-                <p class="card-category">Subscribers</p>
-                <h4 class="card-title">1303</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <div class="card card-stats card-round">
-        <div class="card-body">
-          <div class="row align-items-center">
-            <div class="col-icon">
-              <div
-                class="icon-big text-center icon-success bubble-shadow-small">
-                <i class="fas fa-luggage-cart"></i>
-              </div>
-            </div>
-            <div class="col col-stats ms-3 ms-sm-0">
-              <div class="numbers">
-                <p class="card-category">Sales</p>
-                <h4 class="card-title">$ 1,345</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <div class="card card-stats card-round">
-        <div class="card-body">
-          <div class="row align-items-center">
-            <div class="col-icon">
-              <div
-                class="icon-big text-center icon-secondary bubble-shadow-small">
-                <i class="far fa-check-circle"></i>
-              </div>
-            </div>
-            <div class="col col-stats ms-3 ms-sm-0">
-              <div class="numbers">
-                <p class="card-category">Order</p>
-                <h4 class="card-title">576</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card card-round">
-        <div class="card-header">
-          <div class="card-head-row">
-            <div class="card-title">User Statistics</div>
-            <div class="card-tools">
-              <a
-                href="#"
-                class="btn btn-label-success btn-round btn-sm me-2">
-                <span class="btn-label">
-                  <i class="fa fa-pencil"></i>
-                </span>
-                Export
-              </a>
-              <a href="#" class="btn btn-label-info btn-round btn-sm">
-                <span class="btn-label">
-                  <i class="fa fa-print"></i>
-                </span>
-                Print
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="chart-container" style="min-height: 375px">
-            <canvas id="statisticsChart"></canvas>
-          </div>
-          <div id="myChartLegend"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card card-primary card-round">
-        <div class="card-header">
-          <div class="card-head-row">
-            <div class="card-title">Daily Sales</div>
-            <div class="card-tools">
-              <div class="dropdown">
-                <button
-                  class="btn btn-sm btn-label-light dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false">
-                  Export
-                </button>
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-category">March 25 - April 02</div>
-        </div>
-        <div class="card-body pb-0">
-          <div class="mb-4 mt-2">
-            <h1>$4,578.58</h1>
-          </div>
-          <div class="pull-in">
-            <canvas id="dailySalesChart"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="card card-round">
-        <div class="card-body pb-0">
-          <div class="h1 fw-bold float-end text-primary">+5%</div>
-          <h2 class="mb-2">17</h2>
-          <p class="text-muted">Users online</p>
-          <div class="pull-in sparkline-fix">
-            <div id="lineChart"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-round">
-        <div class="card-header">
-          <div class="card-head-row card-tools-still-right">
-            <div class="card-title">Transaction History</div>
-            <div class="card-tools">
-              <div class="dropdown">
-                <button
-                  class="btn btn-icon btn-clean me-0"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false">
-                  <i class="fas fa-ellipsis-h"></i>
-                </button>
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <div class="table-responsive">
-            <!-- Projects table -->
-            <table class="table align-items-center mb-0">
-              <thead class="thead-light">
+          <div class="card-body">
+            <table id="add-row" class="display table table-striped table-hover text-center">
+              <thead>
                 <tr>
-                  <th scope="col">Payment Number</th>
-                  <th scope="col" class="text-end">Date & Time</th>
-                  <th scope="col" class="text-end">Amount</th>
-                  <th scope="col" class="text-end">Status</th>
+                  <th>No</th>
+                  <th>Tanggal</th>
+                  <th>Nama</th>
+                  <th>No RM</th>
+                  <th>Usia</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Jenis Pasien</th>
+                  <th>Alamat</th>
+                  <th>Diagnosis</th>
+                  <th>Tindakan</th>
+                  <th>Jasa</th>
+                  <th>Pembiayaan</th>
+                  <th>Dokter</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach($kunjungan as $data)
                 <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $data->tanggal_kunjungan }}</td>
+                  <td>{{ $data->pasien->nama }}</td>
+                  <td>{{ $data->pasien->no_rm }}</td>
+                  <td>{{ \Carbon\Carbon::parse($data->pasien->tanggal_lahir)->age }}</td>
+                  <td>{{ $data->pasien->jenis_kelamin }}</td>
+                  <td>{{ $data->jenis_pasien }}</td>
+                  <td>{{ $data->pasien->alamat }}</td>
+                  <td>{{ $data->diagnosis }}</td>
+                  <td>{{ $data->tindakan }}</td>
+                  <td>{{ $data->jasa }}</td>
+                  <td>{{ $data->pembiayaan }}</td>
+                  <td>{{ $data->dokter->nama }}</td>
+                  <td>
+                    <!-- Tombol Edit -->
+                    <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal-{{ $data->id }}">
+                      <i class="fa fa-edit"></i>
+                    </a>
+                    <!-- Tombol Hapus -->
+                    <form id="delete-form-{{ $data->id }}" action="{{ route('poli-gigi.delete', $data->id) }}" method="POST" style="display:inline;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeletion({{ $data->id }})">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </form>
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <button
-                      class="btn btn-icon btn-round btn-success btn-sm me-2">
-                      <i class="fa fa-check"></i>
-                    </button>
-                    Payment from #10231
-                  </th>
-                  <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                  <td class="text-end">$250.00</td>
-                  <td class="text-end">
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -319,5 +71,98 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Edit -->
+@foreach($kunjungan as $data)
+<div class="modal fade" id="editModal-{{ $data->id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Data Kunjungan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('poli-gigi.edit', $data->id) }}" method="POST">
+          @csrf
+          @method('PUT')
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="tanggal_kunjungan">Tanggal Kunjungan</label>
+                <input type="date" name="tanggal_kunjungan" class="form-control" value="{{ $data->tanggal_kunjungan }}" required>
+              </div>
+              <div class="form-group">
+                <label for="jenis_pasien">Jenis Pasien</label>
+                <select name="jenis_pasien" class="form-control" required>
+                  <option value="Baru" {{ $data->jenis_pasien == 'Baru' ? 'selected' : '' }}>Baru</option>
+                  <option value="Lama" {{ $data->jenis_pasien == 'Lama' ? 'selected' : '' }}>Lama</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="diagnosis">Diagnosis</label>
+                <input type="text" name="diagnosis" class="form-control" value="{{ $data->diagnosis }}" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="pembiayaan">Pembiayaan</label>
+                <select name="pembiayaan" class="form-control" required>
+                  <option value="BPJS" {{ $data->pembiayaan == 'BPJS' ? 'selected' : '' }}>BPJS</option>
+                  <option value="Umum" {{ $data->pembiayaan == 'Umum' ? 'selected' : '' }}>Umum</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+@endforeach
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+<script>
+  Swal.fire({
+    title: 'Berhasil!',
+    text: "{{ session('success') }}",
+    icon: 'success',
+    timer: 2000,
+    timerProgressBar: true
+  });
+</script>
+@endif
+
+@if(session('error'))
+<script>
+  Swal.fire({
+    title: 'Gagal!',
+    text: "{{ session('error') }}",
+    icon: 'error',
+    timer: 2000,
+    timerProgressBar: true
+  });
+</script>
+@endif
+
+<script>
+  function confirmDeletion(id) {
+    Swal.fire({
+      title: 'Apakah Anda yakin?',
+      text: "Data kunjungan akan dihapus secara permanen!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, hapus!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('delete-form-' + id).submit();
+      }
+    });
+  }
+</script>
 @endsection

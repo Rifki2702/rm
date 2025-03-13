@@ -44,7 +44,7 @@
                                     <td>{{ $data->pembiayaan }}</td>
                                     <td>{{ $data->dokter->nama }}</td>
                                     <td>
-                                        <!-- Tombol Edit -->
+                                        <!-- Tombol Edit Kunjungan -->
                                         <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal-{{ $data->id }}">
                                             <i class="fa fa-edit"></i>
                                         </a>
@@ -67,8 +67,7 @@
         </div>
     </div>
 </div>
-
-<!-- Modal Edit -->
+<!-- Modal Edit Kunjungan -->
 @foreach($kunjungan as $data)
 <div class="modal fade" id="editModal-{{ $data->id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -107,7 +106,14 @@
                                     <option value="Umum" {{ $data->pembiayaan == 'Umum' ? 'selected' : '' }}>Umum</option>
                                 </select>
                             </div>
-
+                            <div class="form-group">
+                                <label for="dokter_id">Dokter</label>
+                                <select name="dokter_id" class="form-control" required>
+                                    @foreach($dokters as $dokter)
+                                    <option value="{{ $dokter->id }}" {{ old('dokter_id', $data->dokter_id) == $dokter->id ? 'selected' : '' }}>{{ $dokter->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Simpan</button>
